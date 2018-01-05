@@ -1,5 +1,9 @@
 # Installation
 
+```
+npm install
+```
+
 ## Configuration
 
 * Copy and rename .env.default to .env
@@ -12,6 +16,14 @@ Create your public and private key for the JWT signatur:
 ```
 $ openssl genrsa -out config/jwt/private.pem -aes256 4096
 $ openssl rsa -pubout -in config/jwt/private.pem -out config/jwt/public.pem
+```
+
+## Start
+
+Use nodemon to restart the application after any change (includes the .env file)
+
+```
+npm start
 ```
 
 # Features
