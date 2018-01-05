@@ -1,0 +1,4 @@
+.env
+config/jwt/public.pem
+config/jwt/private.pem
+node_modules
