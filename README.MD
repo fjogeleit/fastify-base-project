@@ -11,7 +11,7 @@ npm install
 
 ## Create your PEM files
 
-Create your public and private key for the JWT signatur:
+Create your public and private key for the JWT signature:
 
 ```
 $ openssl genrsa -out config/jwt/private.pem -aes256 4096
@@ -28,7 +28,7 @@ npm start
 
 # Features
 
-* JWT Authentification with PEM signature and passphrase
+* JWT Authentification with PEM file based signature and passphrase
 * Base User Model
 * API Routes for registration and login
 * Example for Authorized and Unauthorized API access
