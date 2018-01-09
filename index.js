@@ -11,34 +11,8 @@ fastify
   .register(require('./schemas/user'))
   .register(require('fastify-auth'))
   .register(require('./auth/jwt-auth'))
-  .register(require('./routes/userRoutes'))
-  .after(() => {
-    const opts = {
-      schema: {
-        response: {
-          200: {
-            type: 'object',
-            properties: {
-              hello: { type: 'string' }
-            }
-          }
-        }
-      },
-      beforeHandler: fastify.auth([fastify.jwtAuth])
-    }
-
-    fastify.get('/auth', opts, async (request, reply) => {
-      reply.type('application/json').code(200)
-
-      return { hello: 'hello ' + request.user.username }
-    })
-
-    fastify.get('/', async (request, reply) => {
-      reply.type('application/json').code(200)
-
-      return { hello: 'hello world' }
-    })
-  })
+  .register(require('./routes/userRoutes'), { prefix: '/users' })
+  .register(require('./routes/indexRoutes'))
 
 fastify.listen(process.env.SERVER_PORT || 3000, function (err) {
   if (err) throw err

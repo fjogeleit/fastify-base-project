@@ -17,6 +17,6 @@
     "fastify-mongoose": "^0.2.1",
     "jsonwebtoken": "^8.1.0",
     "mongoose": "^5.0.0-rc2",
-    "nodemon": "^1.14.7"
+    "nodemon": "^1.14.9"
   }
 }

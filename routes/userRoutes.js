@@ -35,7 +35,7 @@ module.exports = function (fastify, opts, next) {
     }
   }
 
-  fastify.post('/users/register', registerSchema, async (req, reply) => {
+  fastify.post('/register', registerSchema, async (req, reply) => {
     const User = fastify.mongo.db.model('User')
 
     User.findOne({ username: req.body.username }, async (error, user) => {
@@ -81,7 +81,7 @@ module.exports = function (fastify, opts, next) {
     }
   }
 
-  fastify.post('/users/login', loginSchema, async (req, reply) => {
+  fastify.post('/login', loginSchema, async (req, reply) => {
     const User = fastify.mongo.db.model('User')
 
     User.findOne({ username: req.body.username }, async (error, user) => {
