@@ -5,6 +5,9 @@ const fs = require('fs')
 module.exports = function (fastify, opts, next) {
   const registerSchema = {
     schema: {
+      description: 'Register a new User',
+      tags: ['User'],
+      summary: 'Register a new User',
       body: {
         type: 'object',
         required: ['username', 'email', 'password'],
@@ -55,6 +58,9 @@ module.exports = function (fastify, opts, next) {
 
   const loginSchema = {
     schema: {
+      description: 'Login User API',
+      tags: ['User'],
+      summary: 'Create a JWT for authenticate API calls',
       body: {
         type: 'object',
         required: ['username', 'password'],

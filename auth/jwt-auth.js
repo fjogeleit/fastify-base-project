@@ -8,16 +8,16 @@ const jwtAuth = function (fastify, opts, next) {
       return reply.code(401).send({ message: ' Unauthorized' })
     }
 
-    jwt.verify(request.req.headers['authorization'], fs.readFileSync('./config/jwt/public.pem'), (err, decoded) => {
+    jwt.verify(request.req.headers['authorization'].replace('Bearer', '').trim(), fs.readFileSync('./config/jwt/public.pem'), (err, decoded) => {
       if (err || !decoded.username) {
-        return reply.code(401).send({ message: ' Unauthorized' })
+        return reply.code(401).send({ message: 'Unauthorized' })
       }
 
       fastify.mongo.db.model('User').findOne({ username: decoded.username }, (error, user) => {
         if (error) throw error
 
         if (!user) {
-          return reply.code(401).send({ message: ' Unauthorized' })
+          return reply.code(401).send({ message: 'Unauthorized' })
         }
 
         request.user = user
