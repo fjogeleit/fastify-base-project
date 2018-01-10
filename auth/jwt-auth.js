@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken')
-const fp = require('fastify-plugin')
+const fastifyPlugin = require('fastify-plugin')
 const fs = require('fs')
 
 const jwtAuth = function (fastify, opts, next) {
@@ -14,7 +14,9 @@ const jwtAuth = function (fastify, opts, next) {
       }
 
       fastify.mongo.db.model('User').findOne({ username: decoded.username }, (error, user) => {
-        if (error) throw error
+        if (error) {
+          return reply.code(500).send({ message: error.message })
+        }
 
         if (!user) {
           return reply.code(401).send({ message: 'Unauthorized' })
@@ -30,4 +32,4 @@ const jwtAuth = function (fastify, opts, next) {
   next()
 }
 
-module.exports = fp(jwtAuth, '>=0.13.1')
+module.exports = fastifyPlugin(jwtAuth, '>=0.13.1')
