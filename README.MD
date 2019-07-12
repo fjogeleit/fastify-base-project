@@ -18,6 +18,12 @@ $ openssl genrsa -out config/jwt/private.pem -aes256 4096
 $ openssl rsa -pubout -in config/jwt/private.pem -out config/jwt/public.pem
 ```
 
+## Use docker to start your test mongoDB
+
+```
+docker-compose up -d
+```
+
 ## Start
 
 Use nodemon to restart the application after any change (includes the .env file)

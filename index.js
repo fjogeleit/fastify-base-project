@@ -5,6 +5,7 @@ const port = process.env.SERVER_PORT || 3000
 
 fastify
   .register(require('fastify-swagger'), {
+    routePrefix: '/documentation',
     swagger: {
       info: {
         title: 'Fastify Basic Project',
@@ -12,6 +13,9 @@ fastify
         version: '0.1.0'
       },
       host: `localhost:${port}`,
+      tags: [
+        { name: 'User', description: 'User related end-points' }
+      ],  
       schemes: ['http'],
       consumes: ['application/json'],
       produces: ['application/json'],

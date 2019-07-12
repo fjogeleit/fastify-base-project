@@ -35,7 +35,7 @@ module.exports = function (fastify, opts, next) {
         }
       }
     },
-    beforeHandler: fastify.auth([fastify.jwtAuth])
+    preHandler: fastify.auth([fastify.jwtAuth])
   }
 
   fastify.get('/auth', authSchema, async (request, reply) => {
