@@ -22,7 +22,7 @@ fastify
       securityDefinitions: {
         apiKey: {
           type: 'apiKey',
-          name: 'apiKey',
+          name: 'Authorization',
           in: 'header'
         }
       }
