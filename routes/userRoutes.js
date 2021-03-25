@@ -1,4 +1,4 @@
-const bcrypt = require('bcryptjs');
+const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const fs = require('fs')
 
@@ -14,7 +14,7 @@ module.exports = function (fastify, opts, next) {
         properties: {
           username: { type: 'string' },
           email: { type: 'string' },
-          password: { type: 'string' },
+          password: { type: 'string' }
         }
       },
       response: {
@@ -66,7 +66,7 @@ module.exports = function (fastify, opts, next) {
         required: ['username', 'password'],
         properties: {
           username: { type: 'string' },
-          password: { type: 'string' },
+          password: { type: 'string' }
         }
       },
       response: {
@@ -97,11 +97,11 @@ module.exports = function (fastify, opts, next) {
         return reply.code(409).send({ errorCode: 409, errorMessage: 'Login failed' })
       }
 
-      if (false === await bcrypt.compare(req.body.password, user.password)) {
+      if (await bcrypt.compare(req.body.password, user.password) === false) {
         return reply.code(409).send({ errorCode: 409, errorMessage: 'Login failed' })
       }
 
-      const{ _id, username, email, roles } = user
+      const { _id, username, email, roles } = user
 
       jwt.sign({ _id, username, email, roles }, { key: fs.readFileSync('./config/jwt/private.pem'), passphrase: process.env.JWT_PASSPHRASE }, { algorithm: 'RS256' }, (error, token) => {
         if (error) throw error

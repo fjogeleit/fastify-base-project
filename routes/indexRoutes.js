@@ -25,7 +25,7 @@ module.exports = function (fastify, opts, next) {
       description: 'Only authenticate access',
       tags: ['Index'],
       summary: 'Hello Username',
-      security: [{ "apiKey": [] }],
+      security: [{ apiKey: [] }],
       response: {
         200: {
           type: 'object',

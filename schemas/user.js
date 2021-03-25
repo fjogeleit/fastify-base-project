@@ -9,7 +9,7 @@ module.exports = function (fastify, opts, next) {
     roles: [String],
     password: String,
     created: { type: Date, default: Date.now }
-  });
+  })
 
   fastify.mongo.db.model('User', User)
 

@@ -5,7 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon --watch ./ --watch .env"
+    "start": "nodemon --watch ./ --watch .env",
+    "start:prod": "node index.js",
+    "lint": "npm run lint:standard",
+    "lint:fix": "standard --fix",
+    "lint:standard": "standard --verbose"
   },
   "author": "",
   "license": "ISC",
@@ -18,7 +22,18 @@
     "fastify-mongoose": "^0.2.1",
     "fastify-swagger": "^2.6.0",
     "jsonwebtoken": "^8.5.0",
-    "mongoose": "^5.10.2",
-    "nodemon": "^2.0.4"
+    "mongoose": "^5.10.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4",
+    "eslint": "^7.11.0",
+    "eslint-config-standard": "^16.0.1",
+    "eslint-import-resolver-node": "^0.3.2",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^5.0.0",
+    "snazzy": "^9.0.0",
+    "standard": "^16.0.1"
   }
 }
