@@ -4,11 +4,11 @@ const fs = require('fs')
 
 const jwtAuth = function (fastify, opts, next) {
   fastify.decorate('jwtAuth', function (request, reply, done) {
-    if (!request.req.headers['authorization']) {
+    if (!request.req.headers.authorization) {
       return reply.code(401).send({ message: ' Unauthorized' })
     }
 
-    jwt.verify(request.req.headers['authorization'].replace('Bearer', '').trim(), fs.readFileSync('./config/jwt/public.pem'), (err, decoded) => {
+    jwt.verify(request.req.headers.authorization.replace('Bearer', '').trim(), fs.readFileSync('./config/jwt/public.pem'), (err, decoded) => {
       if (err || !decoded.username) {
         return reply.code(401).send({ message: 'Unauthorized' })
       }

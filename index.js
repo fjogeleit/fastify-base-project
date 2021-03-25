@@ -15,7 +15,7 @@ fastify
       host: `localhost:${port}`,
       tags: [
         { name: 'User', description: 'User related end-points' }
-      ],  
+      ],
       schemes: ['http'],
       consumes: ['application/json'],
       produces: ['application/json'],
