@@ -12,7 +12,7 @@
     "lint:standard": "standard --verbose"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "dotenv": "^8.2.0",
@@ -22,10 +22,9 @@
     "fastify-mongoose": "^0.2.1",
     "fastify-swagger": "^2.6.0",
     "jsonwebtoken": "^8.5.0",
-    "mongoose": "^5.10.2"
+    "mongoose": "^5.12.2"
   },
   "devDependencies": {
-    "nodemon": "^2.0.4",
     "eslint": "^7.11.0",
     "eslint-config-standard": "^16.0.1",
     "eslint-import-resolver-node": "^0.3.2",
@@ -33,6 +32,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^5.0.0",
+    "nodemon": "^2.0.4",
     "snazzy": "^9.0.0",
     "standard": "^16.0.1"
   }
